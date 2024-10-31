@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ImpactSphere</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function submitForm(event) {
+      event.preventDefault(); 
+      const email = document.querySelector("input[name='email']").value;
+      const message = document.querySelector("textarea[name='message']").value;
+
+      document.querySelector("input[name='email']").value = '';
+      document.querySelector("textarea[name='message']").value = '';
+      closeModal(); 
+    }
+
+    function openModal() {
+  document.querySelector(".modal").classList.add("active"); 
+}
+
+function closePopup() {
+  document.querySelector(".modal").classList.remove("active"); 
+}
+
+  </script>
+</head>
+<body>
+
+    <div class="modal">
+        <div class="modal-inner">
+          <div class="header">
+            <div class="title">Contact Us</div>
+            <div class="exit" onclick="closePopup()">*</div>
+          </div>
+          <hr>
+          <div class="email">
+            <label for="email">From:&nbsp;</label>
+            <div class="text-input">
+              <input type="email" id="email" name="email" placeholder="paxon.jpg@gmail.com" >
+            </div>
+          </div>
+          <hr>
+          <div class="text-area">
+            <textarea id="message" name="message" placeholder="Write your message..." rows="4" required></textarea>
+          </div>
+          <hr>
+          <div class="button-area">
+            <button class="cancel" onclick="closePopup()">Cancel</button>
+            <button class="send" onclick="submitForm()">Send</button>
+          </div>
+        </div>
+      </div>
+      
+  <li class="contact" onclick="openModal()">Contact</li>
+
+
+</body>
+</html>
